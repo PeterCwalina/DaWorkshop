@@ -14,11 +14,11 @@ def randomKey(dict):
     for key in dict:
         if key != 'Job Class':#job class and total arent to be chosen from
             if key != 'Total':
-                keys = keys + [key] * int(dict[key] * 10) 
+                keys = keys + [key] * int(dict[key] * 10)
     return random.choice(keys)
 
 
-    
+
 @app.route("/occupations")
 def occRoute():
     # creates a dictionary out of occupations.csv
