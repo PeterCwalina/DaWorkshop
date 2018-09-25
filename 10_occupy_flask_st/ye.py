@@ -10,7 +10,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 @app.route("/occupations")
 def occRoute():
-    occDict = csvStuff.makeDict()    
+    occDict = csvStuff.makeDict('data/occupations.csv')    
     return render_template('occ.html',#rendering the template with set params
                            title ='Occupation Data',
                            heading = 'Here\'s some cool data on occupation percentages',

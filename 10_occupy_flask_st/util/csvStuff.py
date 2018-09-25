@@ -10,13 +10,13 @@ def randomKey(dict):
 
 
 # creates a dictionary out of occupations.csv
-def makeDict():
+def makeDict(filename):
     occDict = {}
-    with open('data/occupations.csv') as file:
-    csvReader = csv.reader(file, delimiter = ',')
-    for row in csvReader:
-        if row[0] != "Job Class":#just to make sure we dont accidentally turn a string into a float
-            occDict[row[0]] = float(row[1])
-        else:
-            occDict[row[0]] = row[1]
+    with open(filename) as file:
+        csvReader = csv.reader(file, delimiter = ',')
+        for row in csvReader:
+            if row[0] != "Job Class":#just to make sure we dont accidentally turn a string into a float
+                occDict[row[0]] = float(row[1])
+            else:
+                occDict[row[0]] = row[1]
     return occDict
