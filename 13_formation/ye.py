@@ -10,14 +10,22 @@ def nothing():
 @app.route("/auth")
 def authenticate():
     print(app)
-    #print(request)
+    print(request)
     print(request.args)
     print(request.headers)
     print(request.method)
     print(request.form)
-    return request.args['username']
+    if request.args['username'] == '3l1t3 H4X0r':
+        greet = 'Greetings Master'
+    else:
+        greet = 'Greetings pleb'
+    return render_template('greet.html',
+                           user = request.args['username'],
+                           requestM = request.method,
+                           greeting = greet
+                           )
     
     
-
-app.debug = True
-app.run()
+if __name__ == "__main__" :
+    app.debug = True
+    app.run()
