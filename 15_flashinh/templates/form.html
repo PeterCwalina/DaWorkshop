@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block head %}
+<title>Login Page</title>
+Please login
+{% endblock %}
 
-<html>
-  <head>
-    <title> </title>
-  </head>
-  
-  <body>
+{% block content %}
     <!-- error message jinja -->
     {% set msgs = get_flashed_messages() %}
     {% for each in msgs %}
@@ -19,5 +18,4 @@
      <B>Password:</B> <input type ="text" name ="password">      
       <input type ="submit" name="subl">
     </form>
-  </body>
-</html>
+{% endblock %}
