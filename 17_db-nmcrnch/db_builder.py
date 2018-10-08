@@ -1,5 +1,5 @@
 #Peter Cwalina, Jabir Chowdhury
-#SoftDev1 pd0
+#SoftDev1 pd7
 #SQLITE3 BASICS
 #2018-10-04
 
@@ -9,48 +9,30 @@ import csv       #facilitates CSV I/O
 
 DB_FILE="discobandit.db"
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
+db = sqlite3.connect(DB_FILE)
+c = db.cursor()
 
 
-command = "drop table if exists courses"
-c.execute(command)
-command = "CREATE TABLE courses(code TEXT,mark INTEGER, id INTEGER);"          
-c.execute(command)    
-
-with open('raw/courses.csv') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        params = (str(row['code']), str(row['mark']),str(row['id']))
-        command = "INSERT INTO courses VALUES(\'%s\',%s,%s);" % params
-        c.execute(command)
-command = "drop table if exists occupations"
-c.execute(command)
-command = "CREATE TABLE occupations(JobClass TEXT,Percentage FLOAT);"          
-c.execute(command)
-
-with open('raw/occupations.csv') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        params = (str(row['Job Class']), str(row['Percentage']))
-        command = "INSERT INTO occupations VALUES(\'%s\',%s);" % params
-        c.execute(command)
-command = "drop table if exists peeps"
-c.execute(command)
-command = "CREATE TABLE peeps(name TEXT,age INTEGER,id INTEGER);"          
-c.execute(command)
-
-with open('raw/peeps.csv') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        params = (str(row['name']), str(row['age']),str(row['id']))
-        command = "INSERT INTO peeps VALUES(\'%s\',%s,%s);" % params
+def read_csv():
+        command = "CREATE TABLE courses (code TEXT,mark INTEGER, id INTEGER);"
         c.execute(command)
 
-    
+        with open('data/courses.csv') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                insertion = "INSERT INTO courses VALUES({},{},{})".format("'"+ row['code'] + "'",row['mark'],row['id'])
+                c.execute(insertion)
 
+        command = "CREATE TABLE peeps (name TEXT,age INTEGER, id INTEGER PRIMARY KEY);"
+        c.execute(command)
 
-db.commit() #save changes
+        with open('data/peeps.csv') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                insertion = "INSERT INTO peeps VALUES({},{},{})".format("'"+ row['name'] + "'",row['age'], row['id'])
+                c.execute(insertion)
+
+read_csv()
+
+db.commit()
 db.close()  #close database
-
-
