@@ -2,58 +2,108 @@
 <!-- WORK FILE for CSS -->
 
 <html>
-  <head>
-    <style>
-    body {background-color: gray;}
-    h1   {color: white; background-color: lightgray; text-align: center;}
-    p    {color: black;}
-    h2 {}
-    </style>
-    <title>foo title</title>
-  </head>
 
-  <body>
-    <h1>foo heading 1</h1>
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      float: left;
+      padding: 10px;
+
+    }
+
+    .left {
+      width: 25%;
+    }
+
+    .right {
+      width: 75%;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    body {
+      background-color: gray;
+
+    }
+
+    h1 {
+      color: white;
+      background-color: lightgray;
+      text-align: center;
+    }
+
+    p {
+      color: black;
+
+    }
+
+    footer {
+      color: gray;
+      background-color: #53575e;
+      text-align: right;
+    }
+  </style>
+  <title>foo title</title>
+</head>
+
+<body>
+  <h1>foo heading 1</h1>
+  <div class="row">
+    <div class="column left">
     <h3>nav foo</h3>
-    <ul>
-      <li><a href="">dis</a></li>
-      <li><a href="">dat</a></li>
-      <li><a href="">de udda ting</a></li>
-    </ul>
-    <h2>main foo heading</h2>
-    <p>Master Wayne, you've been gone a long time. You look very fashionable. Apart from the mud.
+      <ul>
+        <li><a href="">dis</a></li>
+        <li><a href="">dat</a></li>
+        <li><a href="">de udda ting</a></li>
+      </ul>
+    </div>
 
-When a forest grows too wild, a purging fire is inevitable and natural. Tomorrow the world will watch in horror as its greatest city destroys itself. The movement back to harmony will be unstoppable this time.
 
-Carbon fiber, .28 caliber, made in China. If you wanna kill a public servant, Mr Maroni... I recommend you buy American.
+    <div class="column right">
+      <h2>main foo heading</h2>
 
-It's ends here.
+      <p>Master Wayne, you've been gone a long time. You look very fashionable. Apart from the mud.
+        When a forest grows too wild, a purging fire is inevitable and natural. Tomorrow the world will watch in horror as its greatest city destroys itself. The movement back to harmony will be unstoppable this time.
 
-You wanna know how I got these scars? My father was... a drinker, and a fiend. And one night, he goes off crazier than usual. Mommy gets the kitchen knife to defend herself. He doesn't like that, not one bit. So, me watching he takes the knife to her, laughing while he does it. He turns to me and he says: "Why so serious?". He comes at me with the knife "Why so serious?". He sticks the blade in my mouth. "Let's put a smile on that face." and... Why so serious?
+        Carbon fiber, .28 caliber, made in China. If you wanna kill a public servant, Mr Maroni... I recommend you buy American.
 
-When their enemies were at the gates the Romans would suspend democracy and appoint one man to protect the city. It wasn't considered an honor, it was a public service.
+        It's ends here.
 
-Gotham's time has come.
+        You wanna know how I got these scars? My father was... a drinker, and a fiend. And one night, he goes off crazier than usual. Mommy gets the kitchen knife to defend herself. He doesn't like that, not one bit. So, me watching he takes the
+        knife
+        to her, laughing while he does it. He turns to me and he says: "Why so serious?". He comes at me with the knife "Why so serious?". He sticks the blade in my mouth. "Let's put a smile on that face." and... Why so serious?
 
-I just want my phone call.
+        When their enemies were at the gates the Romans would suspend democracy and appoint one man to protect the city. It wasn't considered an honor, it was a public service.
 
-This town deserves a better class of criminal and I'm gonna give it to them. Tell your men they work for me now. This is my city.
+        Gotham's time has come.
 
-That's a lovely lovely voice!
+        I just want my phone call.
 
-You know how to fight six men. We can teach you how to engage 600.
+        This town deserves a better class of criminal and I'm gonna give it to them. Tell your men they work for me now. This is my city.
 
-It doesn't matter who we are. What matters is our plan.
+        That's a lovely lovely voice!
 
-I am the League of Shadows.
+        You know how to fight six men. We can teach you how to engage 600.
 
-What if, before she died, she wrote a letter saying she chose Harvey Dent over you? And what if, to spare you pain, I burnt that letter?</p>
+        It doesn't matter who we are. What matters is our plan.
 
-      <br>
-      <br>
+        I am the League of Shadows.
 
-      <footer> Copyright &copy; 2016 Clyde "Thluffy" Sinclair </footer>
+        What if, before she died, she wrote a letter saying she chose Harvey Dent over you? And what if, to spare you pain, I burnt that letter?</p>
+    </div>
+    <br>
+    <br>
+  </div>
+  <footer> Copyright &copy; 2016 Clyde "Thluffy" Sinclair </footer>
 
-  </body>
+</body>
 
 </html>
