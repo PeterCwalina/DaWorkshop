@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  background-color: gray;
+
+}
+
+h1 {
+  color: white;
+  background-color: lightgray;
+  text-align: center;
+}
+
+p {
+  color: black;
+
+}
+
+footer {
+  color: gray;
+  background-color: #53575e;
+  text-align: right;
+}
