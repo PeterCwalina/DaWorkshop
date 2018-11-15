@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Rest Demo</title>
+  <h1>Rest Demo</h1>
+</head>
+
+<body>
+  <h2>Dogs</h2>
+  <img src="{{pic}}">
+  <br>
+  <h2>Chuck norris jokes</h2>
+  <p>{{explanation}}</p>
+  <br>
+  <h2>Some details on luke skywaker</h2>
+  <table>
+    {% for key in dict %}
+    <tr>
+      <td>{{key}}</td>
+      <td>{{dict[key]}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>
