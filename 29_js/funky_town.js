@@ -1,53 +1,75 @@
-var fib = (n) =>{
-  if (n<=0)
-    return 0;
-  else if (n<=2)
-    return 1;
-  else
-    return fib(n-1) + fib(n-2);
+// Peter Cwalina & Maggie Zhao
+// SoftDev1 pd7
+// K#29 -- Sequential Progression
+// 2018-12-19
+
+// Find the nth Fibonacci number
+var fibonacci = function(n) {
+  //base case 1: the number is 0 -> return 0
+	if ( n == 0 ) {
+		return 0;
+	}
+  //base case 2: the number is 1 -> return 1
+	if ( n == 1 ) {
+		return 1;
+	}
+  //use recursion: find the n-1th and n-2th Fibonacci numbers and add them
+	else {
+		return fibonacci(n-1) + fibonacci(n-2);
+	}
 };
 
-var fibHelper = () =>{
-  var num = fib(20);
-  console.log(num);
-  document.getElementById("fib").innerHTML = num;
+var displayfib = function() {
+	var x = fibonacci(10);
+	console.log(x);
+	document.getElementById("display1").innerHTML = x;
 }
+// Greatest Common Divisor of a and b using Euclid's Algorithm
+var gcd = function(a, b) {
+  //3 variables: 2 inputs & 1 temp
+  var c = a;
+  var d = b;
+  var x;
 
-var gcd = (n,d) =>{
-  var x,a,b;
-  a = n;
-  b = d;
-  while(a%b != 0){
-    x = a;
-    a = b;
-    b = x%b;
-  };
-  return b;
+  //if c is a multiple of d, stop
+  //otherwise, find the remainder of c and d
+  while (c % d != 0) {
+    x = c;
+    c = d;
+    d = x % d;
+  }
 
+  return d;
 };
 
-var gcdHelper = () =>{
-  var num = gcd(30,100);
-  console.log(num);
-  document.getElementById("gcd").innerHTML = num;
+var displaygcd = function() {
+	var y = gcd(120, 96);
+	console.log(y);
+	document.getElementById("display2").innerHTML = y;
 }
+//external list
+var list = ["Axl Rose", "Brian May", "Chris Martin", "Dan Reynolds", "Elton John", "Freddie Mercury", "Gorillaz", "Jimi Hendrix"];
 
-var students = ['peter','amit','jared', 'a','b'];
-var randomStudent = () =>{
-  var choice = Math.floor(Math.random() * students.length);
-  return students[choice];
+//returns a randomly selected name from a list
+var randomStudent = function() {
+  //Math.random() returns a pseudorandom floating point number [0,1)
+  //Math.trunc() returns the integer part of a number by removing any fractional digits
+
+  //get a random integer based on the length of the list
+  var index = Math.trunc(Math.random() * list.length);
+
+  //return the name at the randomized index
+	var name = list[index];
+	console.log(name);
+	document.getElementById("display3").innerHTML = name;
+  return name;
 };
 
-var ranStudentHelper = () =>{
-  var student = randomStudent();
-  console.log(student);
-  document.getElementById("ranStudent").innerHTML = student;
-}
-var fibButton = document.getElementById('f');
-var result1 = fibButton.addEventListener('click',fibHelper);
+var but1 = document.getElementById("b");
+var result1 = but1.addEventListener('click', displayfib);
 
-var gcdButton = document.getElementById('g');
-var result2 = gcdButton.addEventListener('click',gcdHelper);
+var but2 = document.getElementById("c");
+var result2 = but2.addEventListener('click', displaygcd);
 
-var studentButton = document.getElementById('r');
-var result3 = studentButton.addEventListener('click',ranStudentHelper);
+var but3 = document.getElementById("d");
+var result3 = but3.addEventListener('click', randomStudent);
